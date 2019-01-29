@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Smart Car Parking System</title>
+<meta charset="UTF-8">
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#000000" />
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+<link href='//fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
+<link href='//fonts.googleapis.com/css?family=Courgette' rel='stylesheet'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" type="image/gif/png" href="https://cdn2.iconfinder.com/data/icons/medical-icons-6/48/4-512.png">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<style>
+
+body,h1,h2,h3,h4,h5,h6 {
+  font-family: "Lato", sans-serif;
+}
+
+body, html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+    background-image: url('../static/images/car4.jpg');
+    min-height: 60%;
+}
+
+/* Second image (Application) */
+.bgimg-2 {
+    background-image: url("../static/images/code.jpeg");
+    min-height: 400px;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+    background-image: url("../static/images/anime.gif");
+    min-height: 400px;
+}
+
+.w3-wide {
+  letter-spacing: 10px;
+}
+
+.w3-hover-opacity {
+  cursor: pointer;
+}
+
+.small_div{
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media screen and (min-width: 480px) {
+    .small_div {
+      width: 60%
+    }
+}
+}
+
+/* Button transition */
+.trans{
+transition: 0.4s;
+}
+
+.font-paragraph{
+  font-family: Ubuntu;
+}
+
+.font-heading{
+  font-family: Merriweather;
+}
+.w3-top{
+     background-color: #000;
+    overflow: hidden;
+}
+textarea{
+    border: 1px solid #EEEEEE;
+    box-shadow: 1px 1px 0 #DDDDDD;
+    display: block;
+    font-size: 14px;
+    margin: 2% auto;
+    padding: 11px 20px 0 70px;
+    resize: none;
+    height: 5%;
+    width: 95%;
+}
+
+/* loader */
+.loader {
+  border: 7px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 7px solid #3498db;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+
+}
+
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <ul class="w3-navbar" id="myNavbar" >
+    <li class="w3-hide-medium w3-hide-large w3-opennav w3-right" > 
+      <a class="w3-hover-black" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+        <i class="fa fa-bars"></i>
+      </a>
+    </li>
+    <li class="w3-left-align w3-black font-heading"><a href="#home">Home</a></li>
+    <li class="w3-left-align w3-black font-heading"><a href="#about">About</a></li>
+    <li class="w3-left-align w3-black font-heading"><a href="#application">Application</a></li>
+    <li class="w3-left-align w3-black font-heading"><a href="#application">Contact</a></li>
+  </ul>
+
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium">
+    <ul class="w3-navbar w3-left-align w3-white">
+      <li><a href="#about" onclick="toggleFunction()">About</a></li>
+      <li><a href="#application" onclick="toggleFunction()">Application</a></li>
+      <li><a href="#contact" onclick="toggleFunction()">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container small_bgimg-1" id="home">
+  <div class="w3-display-middle" style="white-space:now rap;">
+    <span class="w3-center w3-padding-xlarge w3-transparent w3-text-white font-heading"
+          style="font-size: 50px">Smart Car Parking System<span class="w3-hide-small "></span></span>
+  </div>
+</div>
+
+
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="about">
+  <h3 class="w3-center font-heading">About</h3>
+  <p class="font-paragraph">We can detect vehicles in a parking area and calculate the number of cars currently in the area with the data obtained from the camera. 
+    Using this, we can provide information to the users whenever the limit of the vehicles that can be parked in the area is reached.
+     </p>
+</div>
+
+
+
+<!-- Take me top button -->
+<div class="w3-row-padding w3-center w3-section trans">
+  <a href="#application" class="w3-btn w3-padding w3-light-grey w3-hover-grey font-heading">Take Me To The App
+    <span class="fa fa-angle-double-down"></span></a>
+</div>
+
+
+<!-- Second Parallax Image with Portfolio Text -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide w3-animate-opacity font-heading"><b>Application</b></span>
+  </div>
+</div>
+
+
+  <br />
+
+
+<!--loading screen -->
+ 
+
+<!-- Content entry -->
+<div class="w3-container w3-content">
+  <h3 class="w3-center font-heading"> Description <br/> <br/> </h3>
+    <p class="font-paragraph">
+      This application is trained for real-time detection of vehicles.<br />
+    </p>
+
+
+    <ul class="font-paragraph">
+        <li>
+           We can also identify the count and obtain the attributes of the vehicle.
+        </li>
+        <li>
+         The availability of parking space is calculated from this detection.
+        </li>
+        <li>
+        The system is also equipped with person detection.
+        </li>
+        <li>
+            Please give a feedback if you find the results to be inaccurate.
+        </li>
+    </ul>
+    <br />
+
+
+  <div class="w3-container w3-dark-grey w3-card-8" id="application">
+      <h2 class="font-heading">Vehicle Detection</h2>
+  </div>
+
+  <div class="w3-container w3-card-8 w3-hover-shadow w3-btn w3-white" style="width: 100%" onclick="myFunction('content_entry_pat'); content_text('content_text')">
+    <p id="content_text" class="w3-center w3-text-dark-grey w3-large font-heading"> Real-Time Vehicle Detection</p>
+  </div>
+
+
+
+  <!-- User enters the details -->
+
+  <div id="content_entry_pat" class="w3-hide w3-animate-right w3-left-align w3-container w3-card-8" style="margin-top: 2%">
+
+   <!--<form class="w3-container" action="\input" method="POST" role="form"> -->
+      <p><input class="w3-input w3-hover-light-grey w3-border-0" name="key" type="text" id="key" placeholder="Type here.."></p>
+       <input id="btn_submit" class="w3-btn w3-dark-grey font-heading"value="submit" type="submit">
+       <!-- Text for diagnosis -->
+    <div class="w3-white w3-block w3-container w3-margin-top w3-btn w3-dark-gray">
+
+      <p onclick="myFunction('diagnosis_text_pat')" class="w3-text-white w3-large font-heading"> Result </p>
+
+       <img id="bg" src="{{ url_for('video_feed') }}"> 
+    </div>
+   </div>
+  </div>
+
+  <!-- </form> -->
+
+  </div>
+
+</div>
+
+
+  <br>
+  <br>
+
+
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-light-grey w3-animate-opacity w3-wide font-heading"><b>Contact</b></span>
+  </div>
+</div>
+
+
+<!-- Container (Contact Section) -->
+<div class="w3-content w3-container w3-padding-64" id="contact">
+  <p class="w3-center font-heading"><em>We'd love your feedback!</em></p>
+
+  <div class="w3-row w3-padding-32 w3-section">
+    <div class="w3-col m4 w3-container">
+      <!-- Add Google Maps -->
+      <div id="googleMap" class="w3-round-large" style="width:100%;height:400px;"></div>
+    </div>
+    <div class="w3-col m8 w3-container w3-section">
+      <div class="w3-large w3-margin-bottom font-paragraph">
+        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Trivandrum, India<br>
+        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +91 9947524990<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: amruthkarun.mv@quest-global.com<br>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-24 w3-opacity w3-hover-opacity-off">
+      <a href="#home" class="w3-btn w3-padding w3-light-grey w3-hover-grey trans font-heading"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+      <div class="w3-xxxlarge w3-section">
+      </div>
+    <h5 style="font-family: Courgette">By Amruth, Anamika, Shalu and Suchithra</h5>
+</footer>
+
+
+<script>
+  function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+function myMap()
+{
+  myCenter=new google.maps.LatLng(8.5593, 76.8826);
+  var mapOptions= {
+    center:myCenter,
+    zoom:15, scrollwheel: false, draggable: false,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+
+  var marker = new google.maps.Marker({
+    position: myCenter,
+  });
+  marker.setMap(map);
+}
+
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+function content_text(id){
+      //Controls the close button on the content entry section
+    var x = document.getElementById(id);
+    if (x.innerHTML != 'Close X'){
+          x.innerHTML = 'Close X';
+    }
+    else{
+        
+             x.innerHTML = 'Real-Time Vehicle Detection &nbsp;&nbsp;<<<<';
+    }
+}
+
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+ $(function() {
+      var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+      var submit_form = function(e) {
+      $.getJSON($SCRIPT_ROOT + '/input', {
+        key: $('input[name="key"]').val()
+      }, function(data) {
+        $('#result').text(data.result);
+        $('input[name=key]').focus().select();
+      });
+      return false;
+    };
+    $('input#btn_submit').bind('click', submit_form);
+    $('input[type=text]').bind('keydown', function(e) {
+      if (e.keyCode == 13) {
+        submit_form(e);
+      }
+    });
+    $('input[name=key]').focus();
+  });
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh0U1xQsAOhj1ZlO-5tvxRoCGQek40XXo&callback=myMap"></script>
+ <script src="static/js/form.js"></script>
+</body>
+</html>
